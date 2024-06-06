@@ -7,6 +7,6 @@
         public string Surname { get; set; }
         public string Fin { get; set; }
         public int StudentNumber { get; set; }
-        public int StudentClass { get; set; }
+        public int Class { get; set; }
     }
 }
