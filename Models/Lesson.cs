@@ -8,5 +8,8 @@
         public int Class { get; set; }
         public string TeacherName { get; set; }
         public string TeacherSurname { get; set; }
+        public List<Exam> Exams { get; set; }
+        public List<Class> Classes { get; set; }
+
     }
 }
