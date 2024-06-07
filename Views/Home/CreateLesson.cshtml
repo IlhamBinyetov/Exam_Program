@@ -1,0 +1,44 @@
+﻿@model LessonViewModel
+@{
+    ViewData["Title"] = "CreateLesson";
+}
+
+
+
+
+
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="mt-5">
+        <form method="POST" asp-action="CreateLesson" asp-controller="Home" class="d-flex">
+            <div class="input-group mb-3">
+                <label for="Code">Lesson Code</label>
+                <input type="text" class="form-control" name="Code" placeholder="Code" asp-for="Code">
+            </div>
+            <div class="input-group mb-3">
+                <label for="LessonName">Lesson Name</label>
+                <input type="text" class="form-control" placeholder="Lesson Name" asp-for="LessonName">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="Class">Class</label>
+                <input type="number" name="Class" asp-for="Class" class="form-control" id="basic-url">
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="TeacherName">Teacher Name</label>
+                <input type="text" name="TeacherName" asp-for="TeacherName" class="form-control">
+            </div>
+            <div class="input-group mb-3">
+                <label for="TeacherSurame">Teacher Surname</label>
+                <input type="text" name="TeacherSurame" asp-for="TeacherSurname" class="form-control">
+            </div>
+
+          
+        </form>
+    </div>
+
+</div>
+
+
+
