@@ -23,20 +23,7 @@ namespace Exam_Program.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult CreateLesson()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateLesson(LessonViewModel model)
-        {
-            bool success = false;
-            //success = _generalService;
-
-            return View();
-        }
+   
 
 
 

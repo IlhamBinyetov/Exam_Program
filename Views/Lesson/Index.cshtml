@@ -1,0 +1,52 @@
+﻿@model LessonViewModel
+@{
+    ViewData["Title"] = "Index";
+    var lessons = Model.Lessons;
+}
+<div class="d-flex justify-content-between">
+    <h1>Bütün dərslər</h1>
+    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Ana səhifə</a>
+</div>
+
+<a asp-controller="Lesson" asp-action="CreateLesson" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Dərs yarat</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Kod</th>
+            <th scope="col">Dərsin adı</th>
+            <th scope="col">Sinifi</th>
+            <th scope="col">Müəllimin adı</th>
+            <th scope="col">Müəllimin soyadı</th>
+        </tr>
+    </thead>    
+    <tbody>
+        @if (lessons != null && lessons.Any())
+        {
+            int counter = 1;
+            @foreach (var lesson in lessons)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@lesson?.Code</td>
+                    <td>@lesson?.Name</td>
+                    <td>@lesson?.Class</td>
+                    <td>@lesson?.TeacherName</td>
+                    <td>@lesson?.TeacherSurname</td>
+                </tr>
+                counter++;
+            }
+        }
+        else
+        {
+            <div class="col-md-12 text-center">
+                <div class="alert alert-danger" role="alert" font-size: 14px">
+                   Dərslərin  siyahısı boşdur!
+                </div>
+            </div>
+        }
+
+    </tbody>
+</table>
+

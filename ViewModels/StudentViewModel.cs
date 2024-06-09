@@ -1,4 +1,6 @@
-﻿namespace Exam_Program.ViewModels
+﻿using Exam_Program.Models;
+
+namespace Exam_Program.ViewModels
 {
     public class StudentViewModel
     {
@@ -7,5 +9,6 @@
         public string? Fin { get; set; }
         public int StudentNumber { get; set; }
         public int Class { get; set; }
+        public IList<Student>? Students { get; set; }
     }
 }

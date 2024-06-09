@@ -1,0 +1,63 @@
+﻿@model StudentViewModel
+@{
+    ViewData["Title"] = "CreateStudent";
+}
+
+<a asp-controller="Student" asp-action="Index" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Şagirdlər</a>
+@{
+    @if (ViewData["success"] is bool success)
+    {
+        {
+            ViewData["msg"] = "Dəyişikliklər müvəffəqiyyətlə yerinə yetirildi!";
+        }
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="padding: 5px 0 0 10px; margin-bottom: -25px">
+                    @{
+                        var partialView = success ? "PartialViews/SuccessAlert" : "PartialViews/DangerAlert";
+                        <partial name="@partialView" view-data="ViewData" />
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+}
+
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="mt-5">
+        <form method="POST" asp-action="CreateStudent" asp-controller="Student">
+            <div class="input-group mb-3">
+                <label for="StudentNumber" class="col-3">Şagirdin nömrəsi</label>
+                <input type="text" class="form-control col-9" name="StudentNumber" asp-for="StudentNumber">
+            </div>
+            <div class="input-group mb-3">
+                <label for="Name" class="col-3">Adı</label>
+                <input type="text" class="form-control col-9" name="Name" asp-for="Name">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="Surname" class="col-3">Soyadı</label>
+                <input type="text" name="Surname" asp-for="Surname" class="form-control col-9">
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="Class" class="col-3">Şagirdin sinifi</label>
+                <input type="number" name="Class" asp-for="Class" class="form-control col-9">
+            </div>
+        
+
+
+            <button type="submit" class="btn btn-primary">
+                Create
+            </button>
+        </form>
+    </div>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+

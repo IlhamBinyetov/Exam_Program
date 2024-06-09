@@ -1,4 +1,6 @@
-﻿namespace Exam_Program.ViewModels
+﻿using Exam_Program.Models;
+
+namespace Exam_Program.ViewModels
 {
     public class ExamViewModel
     {
@@ -6,5 +8,6 @@
         public double Score { get; set; }
         public char LessonCode { get; set; }
         public int StudentNumber { get; set; }
+        public IList<Exam> Exams { get; set; }
     }
 }

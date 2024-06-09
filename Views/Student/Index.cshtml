@@ -1,0 +1,52 @@
+﻿@model StudentViewModel
+@{
+    ViewData["Title"] = "Index";
+    var students = Model.Students;
+}
+<div class="d-flex justify-content-between">
+    <h1>Bütün şagirdlər</h1>
+    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Ana səhifə</a>
+</div>
+
+<a asp-controller="Student" asp-action="CreateStudent" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Şagird yarat</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Şagirdin nömrəsi</th>
+            <th scope="col">Adı</th>
+            <th scope="col">Soyadı</th>
+            <th scope="col">Sinifi</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @if (students != null && students.Any())
+        {
+            int counter = 1;
+            @foreach (var student in students)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@student.StudentNumber</td>
+                    <td>@student?.Name</td>
+                    <td>@student?.Surname</td>
+                    <td>@student?.Class</td>
+                </tr>
+                counter++;
+            }
+        }
+        else
+        {
+            <div class="col-md-12 text-center">
+                <div class="alert alert-danger" role="alert" font-size: 14px">
+                    Tələbələrin  siyahısı boşdur!
+                </div>
+            </div>
+        }
+
+    </tbody>
+</table>
+
+

@@ -1,0 +1,66 @@
+﻿@model ExamViewModel
+@{
+    ViewData["Title"] = "CreateExam";
+}
+
+
+<a asp-controller="Exam" asp-action="Index" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Imtahanlar</a>
+@{
+    @if (ViewData["success"] is bool success)
+    {
+        {
+            ViewData["msg"] = "Dəyişikliklər müvəffəqiyyətlə yerinə yetirildi!";
+        }
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="padding: 5px 0 0 10px; margin-bottom: -25px">
+                    @{
+                        var partialView = success ? "PartialViews/SuccessAlert" : "PartialViews/DangerAlert";
+                        <partial name="@partialView" view-data="ViewData" />
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+
+
+}
+
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <div class="mt-5">
+        <form method="POST" asp-action="CreateExam" asp-controller="Exam">
+            <div class="input-group mb-3">
+                <label for="StudentNumber" class="col-3">Şagirdin nömrəsi</label>
+                <input type="number" class="form-control col-9" name="StudentNumber" asp-for="StudentNumber">
+            </div>
+            <div class="input-group mb-3">
+                <label for="LessonCode" class="col-3">Dərsin kodu</label>
+                <input type="text" class="form-control col-9" name="LessonCode" asp-for="LessonCode">
+
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="ExamDate" class="col-3">imtahan tarixi</label>
+                <input type="datetime" name="ExamDate" asp-for="ExamDate" class="form-control col-9">
+            </div>
+
+            <div class="input-group mb-3">
+                <label for="Score" class="col-3">Qiyməti</label>
+                <input type="number" name="Score" asp-for="Score" class="form-control col-9">
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">
+                Create
+            </button>
+        </form>
+    </div>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+

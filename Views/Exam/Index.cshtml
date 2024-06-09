@@ -1,0 +1,51 @@
+﻿@model ExamViewModel
+@{
+    ViewData["Title"] = "Index";
+    var exams = Model.Exams;
+}
+<div class="d-flex justify-content-between">
+    <h1>Bütün dərslər</h1>
+    <a asp-controller="Home" asp-action="Index" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Ana səhifə</a>
+</div>
+
+<a asp-controller="Exam" asp-action="CreateExam" style="text-decoration: none;color: #beac6f; margin-bottom:3%!important;">Imtahan yarat</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Dərsin Kodu</th>
+            <th scope="col">Şagirdin nömrəsi</th>
+            <th scope="col">İmtahan tarixi</th>
+            <th scope="col">Qiyməti</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (exams != null && exams.Any())
+        {
+            int counter = 1;
+            @foreach (var exam in exams)
+            {
+                <tr>
+                    <th scope="row">@counter</th>
+                    <td>@exam?.LessonCode</td>
+                    <td>@exam?.StudentNumber</td>
+                    <td>@exam?.ExamDate</td>
+                    <td>@exam?.Score</td>
+                </tr>
+                counter++;
+            }
+        }
+        else
+        {
+            <div class="col-md-12 text-center">
+                <div class="alert alert-danger" role="alert" font-size: 14px">
+                   İmtahanların  siyahısı boşdur!
+                </div>
+            </div>
+        }
+
+    </tbody>
+</table>
+
+
