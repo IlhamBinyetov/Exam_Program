@@ -12,7 +12,7 @@
 
 <table class="table mt-3">
     <thead>
-        <tr>
+        <tr style="text-align:center">
             <th scope="col">#</th>
             <th scope="col">Şagirdin nömrəsi</th>
             <th scope="col">Adı</th>
@@ -27,7 +27,7 @@
             int counter = 1;
             @foreach (var student in students)
             {
-                <tr>
+                <tr style="text-align:center">
                     <th scope="row">@counter</th>
                     <td>@student.StudentNumber</td>
                     <td>@student?.Name</td>

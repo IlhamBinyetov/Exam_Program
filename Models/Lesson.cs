@@ -10,11 +10,12 @@ namespace Exam_Program.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
-        public char Code { get; set; }
+        [StringLength(3)]
+        public string? Code { get; set; }
         public string? Name { get; set; }
         public int Class { get; set; }
         
-        public List<Exam> Exams { get; set; }
+        public List<Exam>? Exams { get; set; }
 
        public string? TeacherName { get; set; } 
        public string? TeacherSurname { get; set; }

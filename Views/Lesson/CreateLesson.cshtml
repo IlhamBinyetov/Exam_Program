@@ -28,12 +28,8 @@
     <div class="mt-5">
         <form method="POST" asp-action="CreateLesson" asp-controller="Lesson">
             <div class="input-group mb-3">
-                <label for="Code" class="col-3">Lesson Code</label>
-                <input type="text" class="form-control col-9" name="Code" asp-for="Code">
-            </div>
-            <div class="input-group mb-3">
                 <label for="LessonName" class="col-3">Lesson Name</label>
-                <input type="text" class="form-control col-9" asp-for="LessonName">
+                <input type="text" class="form-control col-9" asp-for="LessonName" maxlength="30">
 
             </div>
 
@@ -44,11 +40,11 @@
 
             <div class="input-group mb-3">
                 <label for="TeacherName" class="col-3">Teacher Name</label>
-                <input type="text" name="TeacherName" asp-for="TeacherName" class="form-control col-9">
+                <input type="text" name="TeacherName" asp-for="TeacherName" class="form-control col-9" maxlength="20">
             </div>
             <div class="input-group mb-3">
                 <label for="TeacherSurname" class="col-3">Teacher Surname</label>
-                <input type="text" name="TeacherSurname" asp-for="TeacherSurname" class="form-control col-9">
+                <input type="text" name="TeacherSurname" asp-for="TeacherSurname" class="form-control col-9" maxlength="20">
             </div>
 
 

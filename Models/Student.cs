@@ -14,6 +14,6 @@ namespace Exam_Program.Models
         public string? Fin { get; set; }
         public int StudentNumber { get; set; }
         public int Class { get; set; }
-        public List<Exam> Exams { get; set; }
+        public List<Exam>? Exams { get; set; }
     }
 }

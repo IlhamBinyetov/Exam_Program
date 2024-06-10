@@ -4,7 +4,7 @@ namespace Exam_Program.ViewModels
 {
     public class LessonViewModel
     {
-        public char Code { get; set; }
+        public string? Code { get; set; }
         public string? LessonName { get; set; }
         public int Class { get; set; }
 

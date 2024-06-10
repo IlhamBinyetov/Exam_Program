@@ -11,11 +11,12 @@ namespace Exam_Program.Models
         public int Id { get; set; }
         public DateTime? ExamDate { get; set; }
         public double Score { get; set; }
-        public Lesson Lesson { get; set; }
+        public Lesson? Lesson { get; set; }
         [Required]
-        public char LessonCode { get; set; }
+        [StringLength(3)]
+        public string? LessonCode { get; set; }
  
-        public Student Student { get; set; }
+        public Student? Student { get; set; }
         [Required]
         public int StudentNumber { get; set; }
 

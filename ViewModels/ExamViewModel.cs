@@ -6,8 +6,8 @@ namespace Exam_Program.ViewModels
     {
         public DateTime? ExamDate { get; set; }
         public double Score { get; set; }
-        public char LessonCode { get; set; }
+        public string? LessonCode { get; set; }
         public int StudentNumber { get; set; }
-        public IList<Exam> Exams { get; set; }
+        public IList<Exam>? Exams { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace Exam_Program.Services
             {
                 Exam exam = new Exam()
                 {
+                    
                     StudentNumber = viewModel.StudentNumber,
                     ExamDate = viewModel.ExamDate,
                     Score = viewModel.Score,
@@ -44,8 +45,8 @@ namespace Exam_Program.Services
             {
                 Lesson lesson = new Lesson()
                 {
+                    Code = GenerateUniqueLessonCode(),
                     Class = viewModel.Class,
-                    Code = viewModel.Code,
                     Name = viewModel.LessonName,
                     TeacherName = viewModel.TeacherName,
                     TeacherSurname = viewModel.TeacherSurname
@@ -103,6 +104,27 @@ namespace Exam_Program.Services
         {
             return _dbContext.Students.ToList();
         }
+
+
+        public string GenerateUniqueLessonCode()
+        {
+            var existingCodes = _dbContext.Lessons.Select(l => l.Code.ToString()).ToList();
+            for (char c1 = 'A'; c1 <= 'Z'; c1++)
+            {
+                for (char c2 = 'A'; c2 <= 'Z'; c2++)
+                {
+                    for (char c3 = 'A'; c3 <= 'Z'; c3++)
+                    {
+                        string code = $"{c1}{c2}{c3}";
+                        if (!existingCodes.Contains(code))
+                        {
+                            return code;
+                        }
+                    }
+                }
+            }
+            throw new Exception("Benzersiz ders kodu kalmadı");
+        }
     }
 
 
@@ -114,6 +136,7 @@ namespace Exam_Program.Services
         bool AddLesson(LessonViewModel viewModel);
         bool AddStudent(StudentViewModel viewModel);
         bool AddExam(ExamViewModel viewModel);
+        string GenerateUniqueLessonCode();
     }
 
 }
